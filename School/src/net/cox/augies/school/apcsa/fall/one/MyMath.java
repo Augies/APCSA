@@ -19,7 +19,7 @@ public class MyMath {
 	 * @param b the second number
 	 * @return the minimum number
 	 */
-	private static double min(double a, double b) {
+	public static double min(double a, double b) {
 		if (a > b) {
 			return b;
 		}
@@ -33,7 +33,7 @@ public class MyMath {
 	 * @param b the second number
 	 * @return the maximum number
 	 */
-	private static double max(double a, double b) {
+	public static double max(double a, double b) {
 		if (a > b) {
 			return a;
 		}
@@ -46,7 +46,7 @@ public class MyMath {
 	 * @param a the double to have its absolute value found
 	 * @return the absolute value
 	 */
-	private static double abs(double a) {
+	public static double abs(double a) {
 		if (a < 0) {
 			a *= -1;
 		}
@@ -59,7 +59,7 @@ public class MyMath {
 	 * @param a the double to be squared
 	 * @return the squared double
 	 */
-	private static double square(double a) {
+	public static double square(double a) {
 		return a * a;
 	}
 
@@ -69,7 +69,7 @@ public class MyMath {
 	 * @param a the double to be cubed
 	 * @return the cubed double
 	 */
-	private static double cube(double a) {
+	public static double cube(double a) {
 		return a * a * a;
 	}
 
@@ -80,7 +80,7 @@ public class MyMath {
 	 * @param b the width
 	 * @return the area of the rectangle
 	 */
-	private static double areaRect(double a, double b) {
+	public static double areaRect(double a, double b) {
 		if (a <= 0 || b <= 0) {
 			System.out.println("ERROR: Each side must be a positive number!");
 			return -1;
@@ -95,7 +95,7 @@ public class MyMath {
 	 * @param b the width
 	 * @return the perimeter of a rectangle
 	 */
-	private static double perimeterRect(double a, double b) {
+	public static double perimeterRect(double a, double b) {
 		if (a <= 0 || b <= 0) {
 			System.out.println("ERROR: Each side must be a positive number!");
 			return -1;
@@ -109,7 +109,7 @@ public class MyMath {
 	 * @param a the radius of the circle
 	 * @return the circumference of the circle
 	 */
-	private static double circumference(double a) {
+	public static double circumference(double a) {
 		return 3.14 * a * 2;
 	}
 
@@ -119,7 +119,7 @@ public class MyMath {
 	 * @param a the radius of the circle
 	 * @return the area of the circle
 	 */
-	private static double areaCircle(double a) {
+	public static double areaCircle(double a) {
 		return 3.14 * square(a);
 	}
 
@@ -130,7 +130,7 @@ public class MyMath {
 	 * @param b the upper bound (inclusive)
 	 * @return the random number generated
 	 */
-	private static int randomWithRange(double a, double b) {
+	public static int randomWithRange(double a, double b) {
 		return (int) (roundDown(Math.random() * (b - a + 1)) + a);
 	}
 
@@ -140,7 +140,7 @@ public class MyMath {
 	 * @param a the number to be rounded
 	 * @return the rounded number
 	 */
-	private static int roundUp(double a) {
+	public static int roundUp(double a) {
 		if (a % 1 == 0) {
 			return (int) a;
 		}
@@ -153,7 +153,7 @@ public class MyMath {
 	 * @param a the number to be rounded
 	 * @return the rounded number
 	 */
-	private static int roundDown(double a) {
+	public static int roundDown(double a) {
 		return (int) a;
 	}
 }
