@@ -41,6 +41,9 @@ public class Conditional {
 			// can sometimes return true in if statement
 		}
 
+// every comparison statement (if, while, for, etc) has to evaluate to a boolean
+// expression
+
 //		AND &&
 //		T + T = T
 //		T + F = F
