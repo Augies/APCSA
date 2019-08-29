@@ -1,18 +1,27 @@
 package net.cox.augies.school.apcsa.fall.one;
 
+import java.util.Scanner;
+
 public class DiamondProject {
 
+	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) {
-		diamond(0);
-		diamond(1);
-		diamond(2);
+		System.out.println("How big is your diamond?");
+		int size = sc.nextInt();
+		System.out.println("Do you want lines? (1 for yes, 0 for no)");
+		int lines = sc.nextInt();
+		if (lines != 1 || lines != 0) {
+			lines = 0;
+		}
+		diamond(size, lines);
 	}
 
 	/**
 	 * 
 	 * @param size the size of the diamond 0 is 3x3, 1 is 5x5, etc
 	 */
-	public static void diamond(int size) {
+	public static void diamond(int size, int lines) {
 		for (int y = (size * -1) - 1; y < size + 2; y++) {
 			for (int x = (size * -1) - 1; x < size + 2; x++) {
 				switch (getQuadrant(x, y)) {
@@ -61,14 +70,18 @@ public class DiamondProject {
 							System.out.print("V");
 							break;
 						default:
-							if (x == 0) {
-								if (y == 0) {
-									System.out.print("+");
-								} else {
-									System.out.print("|");
+							if (lines == 0) {
+								if (x == 0) {
+									if (y == 0) {
+										System.out.print("+");
+									} else {
+										System.out.print("|");
+									}
+								} else if (y == 0) {
+									System.out.print("-");
 								}
-							} else if (y == 0) {
-								System.out.print("-");
+							} else {
+								System.out.print(" ");
 							}
 							break;
 						}
