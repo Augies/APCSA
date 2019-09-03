@@ -11,7 +11,7 @@ public class DiamondProject {
 		int size = sc.nextInt();
 		System.out.println("Do you want lines? (1 for yes, 0 for no)");
 		int lines = sc.nextInt();
-		if (lines != 1 || lines != 0) {
+		if (lines != 1 && lines != 0) {
 			lines = 0;
 		}
 		diamond(size, lines);
@@ -70,7 +70,7 @@ public class DiamondProject {
 							System.out.print("V");
 							break;
 						default:
-							if (lines == 0) {
+							if (lines == 1) {
 								if (x == 0) {
 									if (y == 0) {
 										System.out.print("+");
