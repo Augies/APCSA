@@ -2,36 +2,41 @@ package net.cox.augies.school.apcsa.fall.one;
 
 public class RowColSum {
 
+	static double[][] rando = new double[6][6];
 	static double rowsum1 = 0;
 	static double colsum1 = 0;
+	static double rowsum[] = new double[rando.length];
+	static double colsum[] = new double[rando[0].length];
 
 	public static void main(String[] args) {
-		double[][] rando = new double[4][6];
-		for (int i = 0; i < rando.length; i++) {
-			for (int j = 0; j < rando[0].length; j++) {
-				rando[i][j] = (double) Math.random();
-			}
-		}
-		printSums(rando);
+		initializeArray();
+		initializeSums();
 		checkForInequality();
+		printThing();
 	}
 
-	public static void printSums(double[][] arr) {
-		double[] rowsum = new double[arr.length];
-		double[] colsum = new double[arr[0].length];
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < arr[i].length; j++) {
-				rowsum[i] += arr[i][j];
-				colsum[j] += arr[i][j];
+	public static void initializeArray() {
+		for (int i = 0; i < rando.length; i++) {
+			for (int j = 0; j < rando[0].length; j++) {
+				rando[i][j] = MyMath.randomWithRange(5, 7);
+			}
+		}
+	}
+
+	public static void initializeSums() {
+		for (int i = 0; i < rando.length; i++) {
+			for (int j = 0; j < rando[i].length; j++) {
+				rowsum[i] += rando[i][j];
+				colsum[j] += rando[i][j];
 			}
 		}
 		for (int i = 0; i < rowsum.length; i++) {
-			System.out.println("Sum of row " + i + ": " + rowsum[i]);
+//			System.out.println("Sum of row " + i + ": " + rowsum[i]);
 			rowsum1 += rowsum[i];
 		}
 		System.out.println();
 		for (int i = 0; i < colsum.length; i++) {
-			System.out.println("Sum of col " + i + ": " + colsum[i]);
+//			System.out.println("Sum of col " + i + ": " + colsum[i]);
 			colsum1 += colsum[i];
 		}
 		// avoids inaccuracies in doubles' values.
@@ -45,5 +50,24 @@ public class RowColSum {
 			System.out.println("Total Row Sum: " + rowsum1);
 			System.out.println("Total Col Sum: " + colsum1);
 		}
+	}
+
+	public static void printThing() {
+		for (int i = 0; i < rando.length; i++) {
+			for (int j = 0; j < rando[i].length; j++) {
+				System.out.print("  " + rando[i][j]);
+			}
+			System.out.println(" | " + rowsum[i]);
+		}
+		for (int i = 0; i < rando[0].length; i++) {
+			System.out.print("-----");
+		}
+		System.out.println();
+		for (int i = 0; i < rando[0].length; i++) {
+			System.out.print(" " + colsum[i]);
+		}
+		System.out.println("\n");
+		System.out.println("Total Row Sum: " + rowsum1);
+		System.out.println("Total Col Sum: " + colsum1);
 	}
 }
