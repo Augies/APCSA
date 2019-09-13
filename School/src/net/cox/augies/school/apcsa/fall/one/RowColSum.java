@@ -1,21 +1,30 @@
 package net.cox.augies.school.apcsa.fall.one;
 
+import java.util.Scanner;
+
 public class RowColSum {
 
-	static double[][] rando = new double[6][6];
 	static double rowsum1 = 0;
 	static double colsum1 = 0;
-	static double rowsum[] = new double[rando.length];
-	static double colsum[] = new double[rando[0].length];
+	static double rowsum[];
+	static double colsum[];
 
 	public static void main(String[] args) {
-		initializeArray();
-		initializeSums();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("# Rows?");
+		int rnum = sc.nextInt();
+		System.out.println("# Cols?");
+		int cnum = sc.nextInt();
+		double[][] rando = new double[rnum][cnum];
+		rowsum = new double[rando.length];
+		colsum = new double[rando[0].length];
+		initializeArray(rando);
+		initializeSums(rando);
 		checkForInequality();
-		printThing();
+		printThing(rando);
 	}
 
-	public static void initializeArray() {
+	public static void initializeArray(double[][] rando) {
 		for (int i = 0; i < rando.length; i++) {
 			for (int j = 0; j < rando[0].length; j++) {
 				rando[i][j] = MyMath.randomWithRange(5, 7);
@@ -23,7 +32,7 @@ public class RowColSum {
 		}
 	}
 
-	public static void initializeSums() {
+	public static void initializeSums(double[][] rando) {
 		for (int i = 0; i < rando.length; i++) {
 			for (int j = 0; j < rando[i].length; j++) {
 				rowsum[i] += rando[i][j];
@@ -52,7 +61,7 @@ public class RowColSum {
 		}
 	}
 
-	public static void printThing() {
+	public static void printThing(double[][] rando) {
 		for (int i = 0; i < rando.length; i++) {
 			for (int j = 0; j < rando[i].length; j++) {
 				System.out.print("  " + rando[i][j]);
