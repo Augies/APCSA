@@ -1,4 +1,4 @@
-package net.cox.augies.school.apcsa.fall.one;
+package net.cox.augies.school.apcsa.fall.two;
 
 import java.util.Scanner;
 
