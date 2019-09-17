@@ -1,5 +1,7 @@
 package net.cox.augies.school.apcsa.fall.minesweeper;
 
+import java.awt.Container;
+
 import javax.swing.JFrame;
 
 public class Main {
@@ -9,7 +11,7 @@ public class Main {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(0, 0, 1080, 720);
-
+		Container contentPane = frame.getContentPane();
 	}
 
 }
