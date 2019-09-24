@@ -16,7 +16,7 @@ public class TicTacToe {
 		initializeGrid(size);
 		int xSelect = 0;
 		int ySelect = 0;
-		while (!(isXWin() || isOWin())) {
+		while (!(isXWin() || isOWin() || isFull())) {
 			printGrid();
 			System.out.print("\nEnter X: ");
 			xSelect = scInt.nextInt() - 1;
@@ -27,8 +27,10 @@ public class TicTacToe {
 		}
 		if (isXWin()) {
 			System.out.println("Congrats! You won!");
-		} else {
+		} else if (isOWin()) {
 			System.out.println("Uh oh! The bot won!");
+		} else {
+			System.out.println("Nobody Won. Sad.");
 		}
 	}
 
@@ -44,6 +46,7 @@ public class TicTacToe {
 	public static void playerMove(int x, int y) {
 		if (isValidPlace(x, y)) {
 			grid[y][x].setX(true);
+			grid[y][x].setBlank(false);
 		} else {
 			System.out.println("Error: Invalid move!");
 		}
@@ -86,12 +89,18 @@ public class TicTacToe {
 	}
 
 	public static void botMove() {
-		int randX = MyMath.randomWithRange(0, grid[0].length - 1);
-		int randY = MyMath.randomWithRange(0, grid.length - 1);
-		if (!isValidPlace(randX, randY)) {
-			botMove();
+		if (!isFull()) {
+			int randX = MyMath.randomWithRange(0, grid.length - 1);
+			int randY = MyMath.randomWithRange(0, grid.length - 1);
+			while (!isValidPlace(randX, randY)) {
+				randX = MyMath.randomWithRange(0, grid.length - 1);
+				randY = MyMath.randomWithRange(0, grid.length - 1);
+			}
+			grid[randY][randX].setO(true);
+			grid[randY][randX].setBlank(false);
+		} else {
+			System.out.println("Nobody Won. Sad.");
 		}
-		grid[randY][randX].setO(true);
 	}
 
 	public static boolean isWin(String choice) {
@@ -205,5 +214,16 @@ public class TicTacToe {
 		}
 
 		return false;
+	}
+
+	public static boolean isFull() {
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid.length; j++) {
+				if (grid[i][j].isBlank()) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 }
