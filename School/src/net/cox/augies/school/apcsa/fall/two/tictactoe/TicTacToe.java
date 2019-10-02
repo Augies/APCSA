@@ -26,10 +26,13 @@ public class TicTacToe {
 			botMove();
 		}
 		if (isXWin()) {
+			printGrid();
 			System.out.println("Congrats! You won!");
 		} else if (isOWin()) {
+			printGrid();
 			System.out.println("Uh oh! The bot won!");
 		} else {
+			printGrid();
 			System.out.println("Nobody Won. Sad.");
 		}
 	}
