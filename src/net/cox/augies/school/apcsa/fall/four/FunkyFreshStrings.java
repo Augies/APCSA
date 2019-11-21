@@ -38,7 +38,7 @@ public class FunkyFreshStrings {
 			System.out.println(fromCaesarCipher(fromCaesarResp, Integer.parseInt(fromCaesarShift)%26));
 			break;
 		case "e":
-			System.out.println("Enter yoru String");
+			System.out.println("Enter your String");
 			System.out.println(scrambleString(sc.nextLine()));
 			break;
 		case "d":
@@ -174,15 +174,17 @@ public class FunkyFreshStrings {
 		char[] scrambled = new char[schars.length];
 		for(int i = 0; i < schars.length; i++) {
 			int random = MathUtils.randomWithRange(0, s.length());
-			if(schars[random]!='\u5512') {
+			if(schars[random]!='\u5856') {
 				scrambled[i]=schars[random];
-				schars[random]='\u5512';
+				schars[random]='\u5856';
 			}else {
 				i--;
 			}
 		}
 		return new String(scrambled);
 	}
+	
+	
 	
 	public static boolean isAlphabetical(String s) {
 		s=s.toLowerCase();
