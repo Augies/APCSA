@@ -1,2 +1,6 @@
 /bin/
 /src/net/cox/augies/school/apcsa/fall/one/PlusOneCalculator.java
+/.idea/
+/.settings/
+/src/src.iml
+/APCSA.iml

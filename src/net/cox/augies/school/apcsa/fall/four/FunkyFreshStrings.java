@@ -1,9 +1,9 @@
 package net.cox.augies.school.apcsa.fall.four;
 
-import java.util.Scanner;
-
 import net.cox.augies.utils.java.ArrUtils;
 import net.cox.augies.utils.java.MathUtils;
+
+import java.util.Scanner;
 
 public class FunkyFreshStrings {
 	
