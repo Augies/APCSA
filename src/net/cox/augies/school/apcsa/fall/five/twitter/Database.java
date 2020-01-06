@@ -29,7 +29,7 @@ public class Database {
                     break;
                 case 2:
                     System.out.println("Please enter the tweet index to be removed.");
-                    twitterDatabase.remove(Integer.parseInt(s.nextLine()));
+                    System.out.println("Removed: " + twitterDatabase.remove(Integer.parseInt(s.nextLine())));
                     break;
                 case 3:
                     System.out.println("Please enter the tweet index to be moderated");
